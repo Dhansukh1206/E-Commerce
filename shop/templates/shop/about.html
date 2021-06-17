@@ -1,0 +1,92 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %}About - Apple Shop {% endblock %}
+{% block body %}
+
+
+
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark my-2 mx-2">
+
+    <div class="col-md-10 px-2">
+      <h1 class="display-4 fst-italic">THE APPLE SHOP - TIMELINE</h1>
+      <p class="lead my-3">In 2021, a small startup in Surat, then positioning itself as an online Apple Product. That sale sparked Apple Shop’s tryst with destiny as it paved the way for this startup to grow to be India’s leader in e-commerce. Over the years, Apple Shop has crossed many milestones on the journey to become India’s e-commerce leader. Run through this timeline and relive the Apple Shop story!</p>
+      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </div> 
+
+    <hr>
+
+  </div>
+</main>
+
+{% endblock %}
+
+{% block css %}
+        .rounded {
+        border-radius: 9.25rem!important;
+        }
+{% endblock %}
+
+
+{% block js %}
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+
+else{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+
+
+$('.cart').click(function(){
+
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] != undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+$('#popcart');
+
+document.getElementById("popcart").setAttribute('data-content', '<5>Cart</5>');
+
+
+
+</script>
+{% endblock %}
